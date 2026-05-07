@@ -1,15 +1,11 @@
 services:
   - type: web
-    name: portfolio-tracker-api
+    name: arbo-invest-tracker
     runtime: python
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
-      - key: JWT_SECRET
-        generateValue: true
-      - key: JWT_EXPIRES_HOURS
-        value: "720"
-      - key: USERS_JSON
-        value: "[]"
+      - key: FMP_API_KEY
+        sync: false
       - key: ALLOWED_ORIGINS
         value: "*"
